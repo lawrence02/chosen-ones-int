@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="finance">
+      <h2 data-cy="financeDetailsHeading"><span jhiTranslate="chosenOnesInternationalApp.finance.detail.title">Finance</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ finance.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.finance.date">Date</span></dt>
+        <dd>
+          <span>{{ finance.date | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.finance.amount">Amount</span></dt>
+        <dd>
+          <span>{{ finance.amount }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.finance.paymentType">Payment Type</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'chosenOnesInternationalApp.PaymentType.' + finance.paymentType }}">{{ finance.paymentType }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/finance', finance.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

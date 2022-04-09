@@ -1,0 +1,26 @@
+{
+  "chosenOnesInternationalApp": {
+    "finance": {
+      "home": {
+        "title": "Finances",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Finance",
+        "createOrEditLabel": "Create or edit a Finance",
+        "notFound": "No Finances found"
+      },
+      "created": "A new Finance is created with identifier {{ param }}",
+      "updated": "A Finance is updated with identifier {{ param }}",
+      "deleted": "A Finance is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Finance {{ id }}?"
+      },
+      "detail": {
+        "title": "Finance"
+      },
+      "id": "ID",
+      "date": "Date",
+      "amount": "Amount",
+      "paymentType": "Payment Type"
+    }
+  }
+}

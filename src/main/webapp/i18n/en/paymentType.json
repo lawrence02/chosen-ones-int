@@ -1,0 +1,9 @@
+{
+  "chosenOnesInternationalApp": {
+    "PaymentType": {
+      "null": "",
+      "OFFERING": "OFFERING",
+      "TITHE": "TITHE"
+    }
+  }
+}

@@ -1,0 +1,140 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-person-heading"
+        data-cy="PersonCreateUpdateHeading"
+        jhiTranslate="chosenOnesInternationalApp.person.home.createOrEditLabel"
+      >
+        Create or edit a Person
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="chosenOnesInternationalApp.person.firstname" for="field_firstname">Firstname</label>
+          <input type="text" class="form-control" name="firstname" id="field_firstname" data-cy="firstname" formControlName="firstname" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="chosenOnesInternationalApp.person.lastname" for="field_lastname">Lastname</label>
+          <input type="text" class="form-control" name="lastname" id="field_lastname" data-cy="lastname" formControlName="lastname" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="chosenOnesInternationalApp.person.dob" for="field_dob">Dob</label>
+          <div class="d-flex">
+            <input
+              id="field_dob"
+              data-cy="dob"
+              type="datetime-local"
+              class="form-control"
+              name="dob"
+              formControlName="dob"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="chosenOnesInternationalApp.person.gender" for="field_gender">Gender</label>
+          <select class="form-control" name="gender" formControlName="gender" id="field_gender" data-cy="gender">
+            <option [ngValue]="null">{{ 'chosenOnesInternationalApp.Gender.null' | translate }}</option>
+            <option *ngFor="let gender of genderValues" [value]="gender">
+              {{ 'chosenOnesInternationalApp.Gender.' + gender | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="chosenOnesInternationalApp.person.occupation" for="field_occupation">Occupation</label>
+          <input
+            type="text"
+            class="form-control"
+            name="occupation"
+            id="field_occupation"
+            data-cy="occupation"
+            formControlName="occupation"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="chosenOnesInternationalApp.person.phone" for="field_phone">Phone</label>
+          <input type="text" class="form-control" name="phone" id="field_phone" data-cy="phone" formControlName="phone" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="chosenOnesInternationalApp.person.baptized" for="field_baptized">Baptized</label>
+          <select class="form-control" name="baptized" formControlName="baptized" id="field_baptized" data-cy="baptized">
+            <option [ngValue]="null">{{ 'chosenOnesInternationalApp.BAPTIZED.null' | translate }}</option>
+            <option *ngFor="let bAPTIZED of bAPTIZEDValues" [value]="bAPTIZED">
+              {{ 'chosenOnesInternationalApp.BAPTIZED.' + bAPTIZED | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="chosenOnesInternationalApp.person.maritalStatus" for="field_maritalStatus"
+            >Marital Status</label
+          >
+          <select
+            class="form-control"
+            name="maritalStatus"
+            formControlName="maritalStatus"
+            id="field_maritalStatus"
+            data-cy="maritalStatus"
+          >
+            <option [ngValue]="null">{{ 'chosenOnesInternationalApp.MARITALSTATUS.null' | translate }}</option>
+            <option *ngFor="let mARITALSTATUS of mARITALSTATUSValues" [value]="mARITALSTATUS">
+              {{ 'chosenOnesInternationalApp.MARITALSTATUS.' + mARITALSTATUS | translate }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="chosenOnesInternationalApp.person.nationality" for="field_nationality">Nationality</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nationality"
+            id="field_nationality"
+            data-cy="nationality"
+            formControlName="nationality"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="chosenOnesInternationalApp.person.ministry" for="field_ministry">Ministry</label>
+          <select class="form-control" name="ministry" formControlName="ministry" id="field_ministry" data-cy="ministry">
+            <option [ngValue]="null">{{ 'chosenOnesInternationalApp.MINISTRY.null' | translate }}</option>
+            <option *ngFor="let mINISTRY of mINISTRYValues" [value]="mINISTRY">
+              {{ 'chosenOnesInternationalApp.MINISTRY.' + mINISTRY | translate }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

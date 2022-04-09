@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="address">
+      <h2 data-cy="addressDetailsHeading"><span jhiTranslate="chosenOnesInternationalApp.address.detail.title">Address</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ address.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.address.streetAddress">Street Address</span></dt>
+        <dd>
+          <span>{{ address.streetAddress }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.address.postalCode">Postal Code</span></dt>
+        <dd>
+          <span>{{ address.postalCode }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.address.city">City</span></dt>
+        <dd>
+          <span>{{ address.city }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.address.stateProvince">State Province</span></dt>
+        <dd>
+          <span>{{ address.stateProvince }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.address.person">Person</span></dt>
+        <dd>
+          <div *ngIf="address.person">
+            <a [routerLink]="['/person', address.person?.id, 'view']">{{ address.person?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/address', address.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

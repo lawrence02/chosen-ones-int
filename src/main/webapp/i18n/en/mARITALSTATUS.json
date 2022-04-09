@@ -1,0 +1,11 @@
+{
+  "chosenOnesInternationalApp": {
+    "MARITALSTATUS": {
+      "null": "",
+      "MARRIED": "MARRIED",
+      "DIVORCED": "DIVORCED",
+      "SINGLE": "SINGLE",
+      "UNKNOWN": "UNKNOWN"
+    }
+  }
+}
