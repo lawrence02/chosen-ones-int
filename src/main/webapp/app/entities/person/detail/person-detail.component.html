@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="person">
+      <h2 data-cy="personDetailsHeading"><span jhiTranslate="chosenOnesInternationalApp.person.detail.title">Person</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ person.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.person.firstname">Firstname</span></dt>
+        <dd>
+          <span>{{ person.firstname }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.person.lastname">Lastname</span></dt>
+        <dd>
+          <span>{{ person.lastname }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.person.dob">Dob</span></dt>
+        <dd>
+          <span>{{ person.dob | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.person.gender">Gender</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'chosenOnesInternationalApp.Gender.' + person.gender }}">{{ person.gender }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.person.occupation">Occupation</span></dt>
+        <dd>
+          <span>{{ person.occupation }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.person.phone">Phone</span></dt>
+        <dd>
+          <span>{{ person.phone }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.person.baptized">Baptized</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'chosenOnesInternationalApp.BAPTIZED.' + person.baptized }}">{{ person.baptized }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.person.maritalStatus">Marital Status</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'chosenOnesInternationalApp.MARITALSTATUS.' + person.maritalStatus }}">{{ person.maritalStatus }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.person.nationality">Nationality</span></dt>
+        <dd>
+          <span>{{ person.nationality }}</span>
+        </dd>
+        <dt><span jhiTranslate="chosenOnesInternationalApp.person.ministry">Ministry</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'chosenOnesInternationalApp.MINISTRY.' + person.ministry }}">{{ person.ministry }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/person', person.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

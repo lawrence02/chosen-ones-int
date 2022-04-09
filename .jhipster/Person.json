@@ -1,0 +1,67 @@
+{
+  "applications": "*",
+  "changelogDate": "20220409133158",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "person",
+  "fields": [
+    {
+      "fieldName": "firstname",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "lastname",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dob",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "Gender",
+      "fieldValues": "MALE,FEMALE"
+    },
+    {
+      "fieldName": "occupation",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "baptized",
+      "fieldType": "BAPTIZED",
+      "fieldValues": "SPIRIT,WATER,NONE"
+    },
+    {
+      "fieldName": "maritalStatus",
+      "fieldType": "MARITALSTATUS",
+      "fieldValues": "MARRIED,DIVORCED,SINGLE,UNKNOWN"
+    },
+    {
+      "fieldName": "nationality",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ministry",
+      "fieldType": "MINISTRY",
+      "fieldValues": "PRAISEANDWORSHIP,USER,COUNSELING,TEACHING,FINANCE,ADMINISTRATION,MAN,WOMEN,CHILDRES,EVANGELISM"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Person",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "address",
+      "otherEntityRelationshipName": "person",
+      "relationshipName": "address",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}
