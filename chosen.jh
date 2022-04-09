@@ -1,0 +1,69 @@
+
+
+enum Gender {
+    MALE, FEMALE
+}
+
+enum BAPTIZED {
+    SPIRIT, WATER, NONE
+}
+
+enum MARITALSTATUS {
+    MARRIED, DIVORCED, SINGLE, UNKNOWN
+}
+
+enum MINISTRY {
+PRAISEANDWORSHIP, USER, COUNSELING, TEACHING, FINANCE, ADMINISTRATION, MAN, WOMEN, CHILDRES, EVANGELISM
+}
+
+entity Person {
+firstname String,
+lastname String,
+dob Instant,
+gender Gender,
+occupation String,
+address Address,
+phone String,
+baptized BAPTIZED,
+maritalStatus MARITALSTATUS,
+nationality String,
+ministry MINISTRY
+}
+
+enum PaymentType {
+OFFERING, TITHE
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Address {
+	streetAddress String,
+	postalCode String,
+	city String,
+	stateProvince String
+}
+
+entity Finance {
+	date Instant,
+    amount Long,
+    paymentType PaymentType
+}
+
+
+
+
+// defining multiple OneToMany relationships with comments
+
+
+
+
+paginate Person with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Address
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
